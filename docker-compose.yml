@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  backend:
+    build: backend
+    image: mullen/image-backend
+    container_name: image-backend
+    ports:
+      - 8090:8090
+  frontend:
+    build: ./frontend
+    image: mullen/image-frontend
+    container_name: image-frontend
+    ports:
+      - 80:80
+    depends_on:
+      - backend
